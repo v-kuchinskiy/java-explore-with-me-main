@@ -1,5 +1,6 @@
 package ru.practicum.stats.controller;
 
+import java.util.List;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -11,8 +12,6 @@ import org.springframework.web.bind.annotation.RestController;
 import ru.practicum.stats.dto.EndpointHitDto;
 import ru.practicum.stats.dto.ViewStatsDto;
 import ru.practicum.stats.service.StatsService;
-
-import java.util.List;
 
 @RestController
 @RequestMapping

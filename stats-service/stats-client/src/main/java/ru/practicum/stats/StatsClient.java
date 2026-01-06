@@ -54,8 +54,6 @@ public class StatsClient {
                     return b.build();
                 })
                 .retrieve()
-                .body(new ParameterizedTypeReference<List<ViewStatsDto>>() {
-                });
+                .body(new ParameterizedTypeReference<List<ViewStatsDto>>() {});
     }
 }
-
