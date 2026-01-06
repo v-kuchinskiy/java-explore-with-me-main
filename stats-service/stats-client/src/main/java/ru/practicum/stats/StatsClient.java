@@ -6,14 +6,13 @@ import org.springframework.http.MediaType;
 import org.springframework.web.client.RestClient;
 import org.springframework.web.util.UriBuilder;
 import ru.practicum.stats.dto.EndpointHitDto;
+import ru.practicum.stats.dto.StatsConstants;
 import ru.practicum.stats.dto.ViewStatsDto;
 
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 public class StatsClient {
-    private static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 
     private final RestClient restClient;
     private final String app;
@@ -28,7 +27,7 @@ public class StatsClient {
         endpointHitDto.setApp(app);
         endpointHitDto.setUri(request.getRequestURI());
         endpointHitDto.setIp(request.getRemoteAddr());
-        endpointHitDto.setTimestamp(LocalDateTime.now().format(FORMATTER));
+        endpointHitDto.setTimestamp(LocalDateTime.now().format(StatsConstants.DATE_TIME_FORMATTER));
         restClient.post()
                 .uri("/hit")
                 .contentType(MediaType.APPLICATION_JSON)
@@ -54,6 +53,7 @@ public class StatsClient {
                     return b.build();
                 })
                 .retrieve()
-                .body(new ParameterizedTypeReference<List<ViewStatsDto>>() {});
+                .body(new ParameterizedTypeReference<List<ViewStatsDto>>() {
+                });
     }
 }

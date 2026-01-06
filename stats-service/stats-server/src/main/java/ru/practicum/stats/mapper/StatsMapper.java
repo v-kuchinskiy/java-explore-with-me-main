@@ -1,14 +1,14 @@
 package ru.practicum.stats.mapper;
 
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import ru.practicum.stats.dto.EndpointHitDto;
+import ru.practicum.stats.dto.StatsConstants;
 import ru.practicum.stats.dto.ViewStatsDto;
 import ru.practicum.stats.model.EndpointHit;
 import ru.practicum.stats.repository.EndpointHitRepository;
 
+import java.time.LocalDateTime;
+
 public final class StatsMapper {
-    private static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 
     private StatsMapper() {
     }
@@ -18,7 +18,7 @@ public final class StatsMapper {
         hit.setApp(dto.getApp());
         hit.setUri(dto.getUri());
         hit.setIp(dto.getIp());
-        hit.setTimestamp(LocalDateTime.parse(dto.getTimestamp(), FORMATTER));
+        hit.setTimestamp(LocalDateTime.parse(dto.getTimestamp(), StatsConstants.DATE_TIME_FORMATTER));
         return hit;
     }
 
