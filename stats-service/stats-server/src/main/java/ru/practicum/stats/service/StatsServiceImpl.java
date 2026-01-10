@@ -32,9 +32,13 @@ public class StatsServiceImpl implements StatsService {
 
     @Override
     public List<ViewStatsDto> getStats(String start, String end, List<String> uris, boolean unique) {
+
         LocalDateTime startTime = parseDateTime(start);
+
         LocalDateTime endTime = parseDateTime(end);
+
         List<String> uriFilter = uris == null ? Collections.emptyList() : uris;
+
         boolean urisEmpty = uriFilter.isEmpty();
 
         List<EndpointHitRepository.ViewStatsProjection> stats = unique
@@ -47,10 +51,15 @@ public class StatsServiceImpl implements StatsService {
     }
 
     private ViewStatsDto toDto(EndpointHitRepository.ViewStatsProjection projection) {
+
         ViewStatsDto dto = new ViewStatsDto();
+
         dto.setApp(projection.getApp());
+
         dto.setUri(projection.getUri());
+
         dto.setHits(projection.getHits());
+
         return dto;
     }
 
