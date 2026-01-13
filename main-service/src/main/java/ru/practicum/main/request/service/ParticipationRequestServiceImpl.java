@@ -17,8 +17,8 @@ import ru.practicum.main.user.repository.UserRepository;
 
 import java.util.List;
 
-import static ru.practicum.main.utility.Constant.EVENT_NOT_FOUND;
-import static ru.practicum.main.utility.Constant.USER_NOT_FOUND;
+import static ru.practicum.main.config.Constant.EVENT_NOT_FOUND;
+import static ru.practicum.main.config.Constant.USER_NOT_FOUND;
 
 @Service
 public class ParticipationRequestServiceImpl implements ParticipationRequestService {

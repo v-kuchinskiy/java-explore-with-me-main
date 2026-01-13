@@ -10,6 +10,11 @@ spring:
       hibernate:
         jdbc.time_zone: UTC
     open-in-view: false
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    serialization:
+      write-dates-as-timestamps: false
+    time-zone: UTC
 
 stats:
   base-url: http://stats-server:9090

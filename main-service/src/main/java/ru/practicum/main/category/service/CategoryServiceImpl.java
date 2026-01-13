@@ -16,7 +16,7 @@ import ru.practicum.main.exception.NotFoundException;
 
 import java.util.List;
 
-import static ru.practicum.main.utility.Constant.CATEGORY_NOT_FOUND;
+import static ru.practicum.main.config.Constant.CATEGORY_NOT_FOUND;
 
 @Service
 @RequiredArgsConstructor

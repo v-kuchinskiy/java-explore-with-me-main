@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import java.time.LocalDateTime;
 import java.util.Collections;
 
-import static ru.practicum.main.utility.Constant.FORMATTER;
+import static ru.practicum.main.config.Constant.FORMATTER;
 
 @RestControllerAdvice
 public class ApiExceptionHandler {

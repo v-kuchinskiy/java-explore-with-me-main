@@ -50,12 +50,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-import static ru.practicum.main.utility.Constant.CATEGORY_NOT_FOUND;
-import static ru.practicum.main.utility.Constant.DEFAULT_START;
-import static ru.practicum.main.utility.Constant.EVENT_NOT_FOUND;
-import static ru.practicum.main.utility.Constant.FORMATTER;
-import static ru.practicum.main.utility.Constant.NOT_INITIATOR;
-import static ru.practicum.main.utility.Constant.USER_NOT_FOUND;
+import static ru.practicum.main.config.Constant.CATEGORY_NOT_FOUND;
+import static ru.practicum.main.config.Constant.DEFAULT_START;
+import static ru.practicum.main.config.Constant.EVENT_NOT_FOUND;
+import static ru.practicum.main.config.Constant.FORMATTER;
+import static ru.practicum.main.config.Constant.NOT_INITIATOR;
+import static ru.practicum.main.config.Constant.USER_NOT_FOUND;
 
 @Service
 public class EventServiceImpl implements EventService {

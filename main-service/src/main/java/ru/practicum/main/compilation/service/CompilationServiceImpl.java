@@ -31,9 +31,9 @@ import java.util.Objects;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-import static ru.practicum.main.utility.Constant.COMPILATION_NOT_FOUND;
-import static ru.practicum.main.utility.Constant.DEFAULT_START;
-import static ru.practicum.main.utility.Constant.FORMATTER;
+import static ru.practicum.main.config.Constant.COMPILATION_NOT_FOUND;
+import static ru.practicum.main.config.Constant.DEFAULT_START;
+import static ru.practicum.main.config.Constant.FORMATTER;
 
 @Service
 public class CompilationServiceImpl implements CompilationService {
