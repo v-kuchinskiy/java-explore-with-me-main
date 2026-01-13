@@ -11,6 +11,7 @@ spring:
         jdbc.time_zone: UTC
     open-in-view: false
   jackson:
+    # Глобальный формат даты (для java.util.Date)
     date-format: yyyy-MM-dd HH:mm:ss
     serialization:
       write-dates-as-timestamps: false
