@@ -36,7 +36,6 @@ import static ru.practicum.main.utility.Constant.DEFAULT_START;
 import static ru.practicum.main.utility.Constant.FORMATTER;
 
 @Service
-@Transactional
 public class CompilationServiceImpl implements CompilationService {
     private final CompilationRepository compilationRepository;
     private final EventRepository eventRepository;
@@ -54,6 +53,7 @@ public class CompilationServiceImpl implements CompilationService {
     }
 
     @Override
+    @Transactional
     public CompilationDto create(NewCompilationDto dto) {
 
         Set<Event> events = new HashSet<>();
@@ -70,6 +70,7 @@ public class CompilationServiceImpl implements CompilationService {
     }
 
     @Override
+    @Transactional
     public void delete(long compId) {
 
         if (!compilationRepository.existsById(compId)) {
@@ -80,6 +81,7 @@ public class CompilationServiceImpl implements CompilationService {
     }
 
     @Override
+    @Transactional
     public CompilationDto update(long compId, UpdateCompilationRequest request) {
 
         Compilation compilation = compilationRepository.findById(compId)

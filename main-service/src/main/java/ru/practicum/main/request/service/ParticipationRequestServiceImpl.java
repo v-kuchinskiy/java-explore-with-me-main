@@ -21,7 +21,6 @@ import static ru.practicum.main.utility.Constant.EVENT_NOT_FOUND;
 import static ru.practicum.main.utility.Constant.USER_NOT_FOUND;
 
 @Service
-@Transactional
 public class ParticipationRequestServiceImpl implements ParticipationRequestService {
 
     private final ParticipationRequestRepository requestRepository;
@@ -48,6 +47,7 @@ public class ParticipationRequestServiceImpl implements ParticipationRequestServ
     }
 
     @Override
+    @Transactional
     public ParticipationRequestDto addRequest(long userId, long eventId) {
 
         User requester = userRepository.findById(userId)
@@ -91,6 +91,7 @@ public class ParticipationRequestServiceImpl implements ParticipationRequestServ
     }
 
     @Override
+    @Transactional
     public ParticipationRequestDto cancelRequest(long userId, long requestId) {
 
         ParticipationRequest request = requestRepository.findByIdAndRequesterId(requestId, userId)

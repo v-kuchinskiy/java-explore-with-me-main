@@ -1,7 +1,6 @@
 package ru.practicum.main.user.service;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
@@ -20,22 +19,23 @@ import java.util.List;
 import static ru.practicum.main.utility.Constant.USER_NOT_FOUND;
 
 @Service
-@Transactional
 @RequiredArgsConstructor
 public class UserServiceImpl implements UserService {
 
     private final UserRepository repository;
 
     @Override
+    @Transactional
     public UserDto create(NewUserRequest request) {
+
+        repository.findByEmail(request.getEmail())
+                .ifPresent(user -> {
+                    throw new ConflictException("Email должен быть уникальный.");
+                });
 
         User user = UserMapper.toEntity(request);
 
-        try {
-            return UserMapper.toDto(repository.save(user));
-        } catch (DataIntegrityViolationException exception) {
-            throw new ConflictException("Email должен быть уникальный.");
-        }
+        return UserMapper.toDto(repository.save(user));
     }
 
     @Override
@@ -60,6 +60,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    @Transactional
     public void delete(long id) {
         if (!repository.existsById(id)) {
             throw new NotFoundException(String.format(USER_NOT_FOUND, id));

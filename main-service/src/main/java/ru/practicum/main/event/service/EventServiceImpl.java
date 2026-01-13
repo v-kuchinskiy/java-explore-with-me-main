@@ -58,7 +58,6 @@ import static ru.practicum.main.utility.Constant.NOT_INITIATOR;
 import static ru.practicum.main.utility.Constant.USER_NOT_FOUND;
 
 @Service
-@Transactional
 public class EventServiceImpl implements EventService {
 
     private static final String EVENT_DATE = "eventDate";
@@ -81,6 +80,7 @@ public class EventServiceImpl implements EventService {
     }
 
     @Override
+    @Transactional
     public EventFullDto addEvent(long userId, NewEventDto dto) {
 
         User user = userRepository.findById(userId)
@@ -128,6 +128,7 @@ public class EventServiceImpl implements EventService {
     }
 
     @Override
+    @Transactional
     public EventFullDto updateUserEvent(long userId, long eventId, UpdateEventUserRequest request) {
 
         Event event = eventRepository.findById(eventId)
@@ -169,6 +170,7 @@ public class EventServiceImpl implements EventService {
     }
 
     @Override
+    @Transactional
     public EventRequestStatusUpdateResult updateRequestsStatus(long userId, long eventId,
                                                                EventRequestStatusUpdateRequest request) {
 
@@ -214,6 +216,7 @@ public class EventServiceImpl implements EventService {
     }
 
     @Override
+    @Transactional
     public EventFullDto updateAdminEvent(long eventId, UpdateEventAdminRequest request) {
         Event event = eventRepository.findById(eventId)
                 .orElseThrow(() -> new NotFoundException(String.format(EVENT_NOT_FOUND, eventId)));
