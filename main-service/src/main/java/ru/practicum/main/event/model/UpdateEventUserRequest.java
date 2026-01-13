@@ -1,5 +1,6 @@
 package ru.practicum.main.event.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.PositiveOrZero;
 import jakarta.validation.constraints.Size;
@@ -24,6 +25,7 @@ public class UpdateEventUserRequest implements UpdateEventRequest {
     @Size(min = 20, max = 7000)
     private String description;
 
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime eventDate;
 
     @Valid
