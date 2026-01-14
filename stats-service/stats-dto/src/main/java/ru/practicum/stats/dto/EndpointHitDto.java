@@ -4,6 +4,7 @@ import lombok.Data;
 
 @Data
 public class EndpointHitDto {
+
     private Long id;
 
     private String app;
