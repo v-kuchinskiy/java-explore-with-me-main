@@ -18,6 +18,8 @@ public final class Constant {
 
     public static final String USER_NOT_FOUND = "Пользователь с id=%d не найден.";
 
+    public static final String COMMENT_NOT_FOUND = "Комментарий с id=%d не найден.";
+
     private Constant() {
     }
 }
