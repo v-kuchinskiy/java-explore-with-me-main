@@ -2,6 +2,7 @@ package ru.practicum.main.compilation.controller;
 
 import jakarta.validation.constraints.Positive;
 import jakarta.validation.constraints.PositiveOrZero;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,13 +14,11 @@ import ru.practicum.main.compilation.service.CompilationService;
 import java.util.List;
 
 @RestController
+@RequiredArgsConstructor
 @RequestMapping("/compilations")
 public class PublicCompilationController {
-    private final CompilationService compilationService;
 
-    public PublicCompilationController(CompilationService compilationService) {
-        this.compilationService = compilationService;
-    }
+    private final CompilationService compilationService;
 
     @GetMapping
     public List<CompilationDto> getCompilations(@RequestParam(required = false) Boolean pinned,

@@ -20,6 +20,7 @@ import ru.practicum.main.compilation.service.CompilationService;
 @RequiredArgsConstructor
 @RequestMapping("/admin/compilations")
 public class AdminCompilationController {
+
     private final CompilationService compilationService;
 
     @PostMapping

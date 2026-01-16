@@ -5,4 +5,5 @@ public interface RequestCount {
     Long getEventId();
 
     Long getTotal();
+
 }

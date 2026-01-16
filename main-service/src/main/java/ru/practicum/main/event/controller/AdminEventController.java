@@ -1,6 +1,7 @@
 package ru.practicum.main.event.controller;
 
 import jakarta.validation.Valid;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,14 +17,11 @@ import ru.practicum.main.event.service.EventService;
 import java.util.List;
 
 @RestController
+@RequiredArgsConstructor
 @RequestMapping("/admin/events")
 public class AdminEventController {
 
     private final EventService eventService;
-
-    public AdminEventController(EventService eventService) {
-        this.eventService = eventService;
-    }
 
     @GetMapping
     public List<EventFullDto> getEvents(@RequestParam(required = false) List<Long> users,
