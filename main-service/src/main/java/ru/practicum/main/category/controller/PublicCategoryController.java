@@ -14,9 +14,10 @@ import ru.practicum.main.category.service.CategoryService;
 import java.util.List;
 
 @RestController
-@RequestMapping("/categories")
 @RequiredArgsConstructor
+@RequestMapping("/categories")
 public class PublicCategoryController {
+
     private final CategoryService service;
 
     @GetMapping

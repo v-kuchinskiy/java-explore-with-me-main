@@ -1,5 +1,6 @@
 package ru.practicum.main.compilation.service;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -36,21 +37,13 @@ import static ru.practicum.main.config.Constant.DEFAULT_START;
 import static ru.practicum.main.config.Constant.FORMATTER;
 
 @Service
+@RequiredArgsConstructor
 public class CompilationServiceImpl implements CompilationService {
+
     private final CompilationRepository compilationRepository;
     private final EventRepository eventRepository;
     private final ParticipationRequestRepository requestRepository;
     private final StatsClient statsClient;
-
-    public CompilationServiceImpl(CompilationRepository compilationRepository,
-                                  EventRepository eventRepository,
-                                  ParticipationRequestRepository requestRepository,
-                                  StatsClient statsClient) {
-        this.compilationRepository = compilationRepository;
-        this.eventRepository = eventRepository;
-        this.requestRepository = requestRepository;
-        this.statsClient = statsClient;
-    }
 
     @Override
     @Transactional

@@ -1,6 +1,7 @@
 package ru.practicum.main.comment.controller;
 
 import jakarta.validation.Valid;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,13 +17,11 @@ import ru.practicum.main.comment.service.CommentService;
 import java.util.List;
 
 @RestController
+@RequiredArgsConstructor
 @RequestMapping("/admin/comments")
 public class AdminCommentController {
-    private final CommentService commentService;
 
-    public AdminCommentController(CommentService commentService) {
-        this.commentService = commentService;
-    }
+    private final CommentService commentService;
 
     @GetMapping
     public List<CommentDto> getComments(@RequestParam(required = false) Long eventId,

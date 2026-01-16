@@ -1,5 +1,6 @@
 package ru.practicum.main.comment.service;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -29,19 +30,12 @@ import static ru.practicum.main.config.Constant.EVENT_NOT_FOUND;
 import static ru.practicum.main.config.Constant.USER_NOT_FOUND;
 
 @Service
+@RequiredArgsConstructor
 public class CommentServiceImpl implements CommentService {
 
     private final CommentRepository commentRepository;
     private final UserRepository userRepository;
     private final EventRepository eventRepository;
-
-    public CommentServiceImpl(CommentRepository commentRepository,
-                              UserRepository userRepository,
-                              EventRepository eventRepository) {
-        this.commentRepository = commentRepository;
-        this.userRepository = userRepository;
-        this.eventRepository = eventRepository;
-    }
 
     @Override
     @Transactional

@@ -1,6 +1,7 @@
 package ru.practicum.main.comment.controller;
 
 import jakarta.validation.Valid;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,14 +21,11 @@ import ru.practicum.main.comment.service.CommentService;
 import java.util.List;
 
 @RestController
+@RequiredArgsConstructor
 @RequestMapping("/users/{userId}/comments")
 public class PrivateCommentController {
 
     private final CommentService commentService;
-
-    public PrivateCommentController(CommentService commentService) {
-        this.commentService = commentService;
-    }
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)

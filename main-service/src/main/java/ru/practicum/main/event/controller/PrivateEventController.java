@@ -1,6 +1,7 @@
 package ru.practicum.main.event.controller;
 
 import jakarta.validation.Valid;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -23,14 +24,11 @@ import ru.practicum.main.request.model.EventRequestStatusUpdateResult;
 import java.util.List;
 
 @RestController
+@RequiredArgsConstructor
 @RequestMapping("/users/{userId}/events")
 public class PrivateEventController {
 
     private final EventService eventService;
-
-    public PrivateEventController(EventService eventService) {
-        this.eventService = eventService;
-    }
 
     @GetMapping
     public List<EventShortDto> getEvents(@PathVariable long userId,

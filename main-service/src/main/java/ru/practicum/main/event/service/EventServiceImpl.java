@@ -2,6 +2,7 @@ package ru.practicum.main.event.service;
 
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -58,6 +59,7 @@ import static ru.practicum.main.config.Constant.NOT_INITIATOR;
 import static ru.practicum.main.config.Constant.USER_NOT_FOUND;
 
 @Service
+@RequiredArgsConstructor
 public class EventServiceImpl implements EventService {
 
     private static final String EVENT_DATE = "eventDate";
@@ -66,18 +68,6 @@ public class EventServiceImpl implements EventService {
     private final CategoryRepository categoryRepository;
     private final ParticipationRequestRepository requestRepository;
     private final StatsClient statsClient;
-
-    public EventServiceImpl(EventRepository eventRepository,
-                            UserRepository userRepository,
-                            CategoryRepository categoryRepository,
-                            ParticipationRequestRepository requestRepository,
-                            StatsClient statsClient) {
-        this.eventRepository = eventRepository;
-        this.userRepository = userRepository;
-        this.categoryRepository = categoryRepository;
-        this.requestRepository = requestRepository;
-        this.statsClient = statsClient;
-    }
 
     @Override
     @Transactional

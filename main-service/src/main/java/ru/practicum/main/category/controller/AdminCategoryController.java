@@ -16,9 +16,10 @@ import ru.practicum.main.category.dto.NewCategoryDto;
 import ru.practicum.main.category.service.CategoryService;
 
 @RestController
-@RequestMapping("/admin/categories")
 @RequiredArgsConstructor
+@RequestMapping("/admin/categories")
 public class AdminCategoryController {
+
     private final CategoryService service;
 
     @PostMapping

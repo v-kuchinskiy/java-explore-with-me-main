@@ -1,5 +1,6 @@
 package ru.practicum.main.request.service;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ru.practicum.main.event.enums.EventState;
@@ -21,19 +22,12 @@ import static ru.practicum.main.config.Constant.EVENT_NOT_FOUND;
 import static ru.practicum.main.config.Constant.USER_NOT_FOUND;
 
 @Service
+@RequiredArgsConstructor
 public class ParticipationRequestServiceImpl implements ParticipationRequestService {
 
     private final ParticipationRequestRepository requestRepository;
     private final UserRepository userRepository;
     private final EventRepository eventRepository;
-
-    public ParticipationRequestServiceImpl(ParticipationRequestRepository requestRepository,
-                                           UserRepository userRepository,
-                                           EventRepository eventRepository) {
-        this.requestRepository = requestRepository;
-        this.userRepository = userRepository;
-        this.eventRepository = eventRepository;
-    }
 
     @Override
     @Transactional(readOnly = true)

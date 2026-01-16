@@ -1,5 +1,6 @@
 package ru.practicum.main.request.controller;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -15,13 +16,11 @@ import ru.practicum.main.request.service.ParticipationRequestService;
 import java.util.List;
 
 @RestController
+@RequiredArgsConstructor
 @RequestMapping("/users/{userId}/requests")
 public class PrivateRequestController {
-    private final ParticipationRequestService requestService;
 
-    public PrivateRequestController(ParticipationRequestService requestService) {
-        this.requestService = requestService;
-    }
+    private final ParticipationRequestService requestService;
 
     @GetMapping
     public List<ParticipationRequestDto> getUserRequests(@PathVariable long userId) {
